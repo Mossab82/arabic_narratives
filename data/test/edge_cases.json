@@ -1,0 +1,59 @@
+{
+    "challenging_texts": [
+        {
+            "id": "EC001",
+            "text": "فقال له الملك: وكيف ذلك؟ قال: حدثني أخي قائلاً: سمعت من جدي أنه قال: رأيت",
+            "challenge": "multiple_nested_frames",
+            "expected_complexity": {
+                "frame_levels": 4,
+                "narrators": ["الملك", "أخي", "جدي"],
+                "dialogue_markers": ["قال", "قائلاً", "أنه قال"]
+            }
+        },
+        {
+            "id": "EC002",
+            "text": "يا مولاي السلطان أعز الله مقامك وأدام عزك",
+            "challenge": "complex_honorifics",
+            "expected_markers": [
+                {
+                    "type": "honorific",
+                    "text": "يا مولاي",
+                    "context": "royal_address"
+                },
+                {
+                    "type": "formal_prayer",
+                    "text": "أعز الله مقامك",
+                    "context": "royal_blessing"
+                }
+            ]
+        }
+    ],
+    "ambiguous_cases": [
+        {
+            "id": "AM001",
+            "text": "قال: وقال: وقال:",
+            "challenge": "repeated_markers",
+            "expected_behavior": "reject_invalid_structure"
+        },
+        {
+            "id": "AM002",
+            "text": "السلام عليكم يا مولاي يا سيدي",
+            "challenge": "multiple_honorifics",
+            "expected_behavior": "merge_honorifics"
+        }
+    ],
+    "error_cases": [
+        {
+            "id": "ER001",
+            "text": "",
+            "challenge": "empty_text",
+            "expected_error": "ValueError: Empty text input"
+        },
+        {
+            "id": "ER002",
+            "text": "Hello World!",
+            "challenge": "non_arabic",
+            "expected_error": "ValueError: Non-Arabic text input"
+        }
+    ]
+}
