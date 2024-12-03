@@ -15,8 +15,8 @@
         {
             "id": "F001",
             "level": 0,
-            "text_ar": "وحكى شهريار لشهرزاد",
-            "text_en": "And Shahryar told Shahrzad",
+            "text_ar": "وحكت شهرزاد لشهريار",
+            "text_en": "And Shahrazad told Shahryar",
             "type": "frame_start",
             "parent": null,
             "children": ["F002"]
@@ -34,21 +34,21 @@
     "characters": [
         {
             "id": "C001",
-            "name_ar": "شهريار",
-            "name_en": "Shahryar",
+            "name_ar": "شهرزاد",
+            "name_en": "Shahrazad",
             "role": "narrator",
             "attributes": {
-                "status": "king",
+                "status": "queen",
                 "significance": "primary"
             }
         },
         {
             "id": "C002",
-            "name_ar": "شهرزاد",
-            "name_en": "Shahrzad",
+            "name_ar": "شهريار",
+            "name_en": "Shahryar",
             "role": "listener",
             "attributes": {
-                "status": "queen",
+                "status": "king",
                 "significance": "primary"
             }
         },
