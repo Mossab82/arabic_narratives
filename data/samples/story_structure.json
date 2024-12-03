@@ -1,0 +1,84 @@
+{
+    "id": "ANT001",
+    "title": {
+        "ar": "حكاية التاجر مع الجني",
+        "en": "The Merchant and the Jinni"
+    },
+    "frame_level": 1,
+    "metadata": {
+        "era": "Islamic Golden Age",
+        "genre": ["moral tale", "supernatural"],
+        "narrative_style": "frame story",
+        "source_reference": "Calcutta II Edition"
+    },
+    "frames": [
+        {
+            "id": "F001",
+            "level": 0,
+            "text_ar": "وحكى شهريار لشهرزاد",
+            "text_en": "And Shahryar told Shahrzad",
+            "type": "frame_start",
+            "parent": null,
+            "children": ["F002"]
+        },
+        {
+            "id": "F002",
+            "level": 1,
+            "text_ar": "قصة التاجر",
+            "text_en": "The Story of the Merchant",
+            "type": "main_story",
+            "parent": "F001",
+            "children": []
+        }
+    ],
+    "characters": [
+        {
+            "id": "C001",
+            "name_ar": "شهريار",
+            "name_en": "Shahryar",
+            "role": "narrator",
+            "attributes": {
+                "status": "king",
+                "significance": "primary"
+            }
+        },
+        {
+            "id": "C002",
+            "name_ar": "شهرزاد",
+            "name_en": "Shahrzad",
+            "role": "listener",
+            "attributes": {
+                "status": "queen",
+                "significance": "primary"
+            }
+        },
+        {
+            "id": "C003",
+            "name_ar": "التاجر",
+            "name_en": "The Merchant",
+            "role": "protagonist",
+            "attributes": {
+                "status": "merchant",
+                "significance": "primary"
+            }
+        }
+    ],
+    "cultural_elements": [
+        {
+            "type": "honorific",
+            "text_ar": "يا مولاي",
+            "text_en": "O my lord",
+            "context": "address to king",
+            "confidence": 0.95,
+            "references": ["classical_arabic_address"]
+        },
+        {
+            "type": "religious",
+            "text_ar": "بسم الله الرحمن الرحيم",
+            "text_en": "In the name of Allah, the Most Gracious, the Most Merciful",
+            "context": "story opening",
+            "confidence": 0.98,
+            "references": ["islamic_invocation"]
+        }
+    ]
+}
