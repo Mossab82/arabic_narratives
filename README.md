@@ -1,196 +1,78 @@
-# Arabic Narrative Analysis Framework
+ANAR: # ANAR: Arabic Narrative Analysis and Recognition System
 
-A comprehensive framework for analyzing, extracting, and processing narrative structures from Arabic texts, with a particular focus on the 1001 Arabian Nights collection.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-## 🌟 Features
+## Overview
 
-- Arabic text preprocessing and normalization
-- Morphological, syntactic, and semantic analysis
-- Narrative structure extraction
-- Character and event network analysis
-- Theme classification
-- Multi-backend storage (Graph, Document, Vector)
-- RESTful API interface
+ANAR (Arabic Narrative Analysis and Recognition) is a comprehensive framework for analyzing and extracting narrative structures from classical Arabic texts, with a specific focus on the 1001 Arabian Nights. The system combines traditional narratological approaches with modern computational methods to preserve both structural and cultural elements of Arabic storytelling.
 
-## 🔧 Installation
+## Features
 
-### Prerequisites
+- **Advanced Text Processing**: Specialized morphological analysis for classical Arabic
+- **Frame Story Detection**: Automated detection of narrative structures and hierarchies
+- **Cultural Preservation**: Context-aware processing maintaining cultural elements
+- **Network Analysis**: Character and event relationship mapping
+- **Batch Processing**: Efficient processing of multiple texts
+- **Performance Optimization**: Memory and processing optimizations
 
-```bash
-# Required system dependencies
-python >= 3.8
-neo4j >= 4.4
-mongodb >= 5.0
-elasticsearch >= 7.0
+## Installation
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# or
-.\venv\Scripts\activate  # Windows
-```
 
-### Install Package
+pip install anar
 
-```bash
-pip install -r requirements.txt
-```
 
-## 📦 Dependencies
+## Quick Start
 
-```text
-camel-tools>=3.0
-spacy>=3.0
-transformers>=4.0
-torch>=1.9
-fastapi>=0.68
-neo4j>=4.4
-pymongo>=3.12
-elasticsearch>=7.0
-networkx>=2.6
-numpy>=1.19
-scikit-learn>=0.24
-pydantic>=1.8
-uvicorn>=0.15
-```
 
-## 🏗️ Project Structure
+from anar.pipeline import ProcessingPipeline
 
-```
-arabic_narratives/
-├── preprocessing/
-│   ├── tokenizer.py     # Arabic text tokenization
-│   ├── normalizer.py    # Text normalization
-│   └── cleaner.py       # Text cleaning utilities
-├── nlp/
-│   ├── morphology.py    # Morphological analysis
-│   ├── syntax.py        # Syntactic analysis
-│   └── semantics.py     # Semantic analysis
-├── narrative/
-│   ├── extractor.py     # Narrative structure extraction
-│   ├── analyzer.py      # Narrative analysis
-│   └── classifier.py    # Theme classification
-├── storage/
-│   ├── graph_store.py   # Neo4j storage backend
-│   ├── document_store.py # MongoDB storage backend
-│   └── vector_store.py  # Elasticsearch storage backend
-└── api/
-    ├── routes.py        # API endpoints
-    └── models.py        # API data models
-```
+# Initialize pipeline
+pipeline = ProcessingPipeline()
 
-## 🚀 Usage
+# Process text
+text = "قال الملك شهريار لشهرزاد: حدثيني حديثاً"
+result = await pipeline.process_text(text)
 
-### Starting the Services
+# Access results
+print(f"Frames detected: {len(result.narrative.frames)}")
+print(f"Cultural elements: {len(result.narrative.cultural_elements)}")
 
-```bash
-# Start Neo4j
-neo4j start
 
-# Start MongoDB
-mongod --dbpath /path/to/data
+## Documentation
 
-# Start Elasticsearch
-elasticsearch
-```
+- [User Guide](docs/user_guide.md)
+- [API Reference](docs/api_reference.md)
+- [Examples](examples/)
 
-### Running the API
+## Citation
 
-```bash
-uvicorn arabic_narratives.api.routes:app --reload
-```
 
-### API Endpoints
+@article{ibrahim2024anar,
+    title={ANAR: Arabic Narrative Analysis and Recognition System with Application to the 1001 Arabian Nights},
+    author={Ibrahim, Mossab and Gervás, Pablo and Méndez, Gonzalo},
+    journal={LREC-COLING},
+    year={2024}
+}
 
-#### Analyze Narrative
-```bash
-curl -X POST "http://localhost:8000/narratives/analyze" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "title": "قصة الملك العادل",
-       "text": "كان يا ما كان في قديم الزمان...",
-       "source": "ألف ليلة وليلة"
-     }'
-```
 
-#### Retrieve Narrative
-```bash
-curl "http://localhost:8000/narratives/{narrative_id}"
-```
+## Contributing
 
-#### Search Similar Narratives
-```bash
-curl "http://localhost:8000/narratives/search?query=قصة%20عن%20ملك%20عادل"
-```
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-## 📊 Example Analysis
-
-```python
-from arabic_narratives.narrative.extractor import NarrativeExtractor
-from arabic_narratives.narrative.analyzer import NarrativeAnalyzer
-
-# Initialize components
-extractor = NarrativeExtractor()
-analyzer = NarrativeAnalyzer()
-
-# Analyze text
-text = """
-وفي يوم من الأيام، قال شهريار لشهرزاد: "حدثيني عن قصة الملك العادل."
-فقالت شهرزاد: "حسناً، سأحدثك عن ملك كان يحكم بالعدل والحكمة..."
-"""
-
-# Extract and analyze
-narrative = extractor.extract_structure(text, "قصة الملك العادل")
-analysis = analyzer.analyze_narrative(narrative)
-
-print(analysis)
-```
-
-## 🔍 Data Model
-
-### Narrative Structure
-```python
-NarrativeStructure(
-    title: str,
-    frame_level: int,
-    characters: List[Character],
-    events: List[Event],
-    settings: List[str],
-    themes: List[str]
-)
-```
-
-### Character
-```python
-Character(
-    name: str,
-    mentions: List[str],
-    role: str,
-    attributes: List[str],
-    relationships: Dict[str, List[str]]
-)
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- The 1001 Arabian Nights corpus
-- CAMeL Tools for Arabic NLP
-- Arabic-BERT project
+- Faculty of Informatics - Universidad Complutense de Madrid
+- Institute of Knowledge Technology - Universidad Complutense de Madrid
 
-## 📧 Contact
+## Contact
 
-For questions and feedback, please contact:
-- Email: [mibrahim@ucm.es.com]
-- GitHub Issues: [Create an issue](https://github.com/Mossab82/arabic_narratives/issues)
+- Mossab Ibrahim - mibrahim@ucm.es
+
+## Project Status
+
+Under active development. See [Issues](https://github.com/Mossab82/arabic_narratives/issues) for current tasks and plans. Narrative Analysis and Recognition System
