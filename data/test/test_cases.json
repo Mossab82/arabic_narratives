@@ -1,0 +1,94 @@
+{
+    "text_processing": {
+        "basic_cases": [
+            {
+                "id": "TP001",
+                "input": "قال الملك شهريار لشهرزاد",
+                "expected": {
+                    "tokens": ["قال", "الملك", "شهريار", "ل", "شهرزاد"],
+                    "morphemes": [
+                        {
+                            "token": "قال",
+                            "root": "قول",
+                            "pattern": "فَعَلَ",
+                            "pos": "VERB"
+                        },
+                        {
+                            "token": "الملك",
+                            "root": "ملك",
+                            "pattern": "فَعِل",
+                            "pos": "NOUN"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "TP002",
+                "input": "في مدينةٍ من مدنِ الصين",
+                "expected": {
+                    "tokens": ["في", "مدينة", "من", "مدن", "الصين"],
+                    "morphemes": [
+                        {
+                            "token": "مدينة",
+                            "root": "مدن",
+                            "pattern": "فَعِيلَة",
+                            "pos": "NOUN"
+                        }
+                    ]
+                }
+            }
+        ],
+        "cultural_markers": [
+            {
+                "id": "CM001",
+                "input": "يا أمير المؤمنين",
+                "expected": {
+                    "type": "honorific",
+                    "significance": "high",
+                    "context": "royal_address"
+                }
+            },
+            {
+                "id": "CM002",
+                "input": "السلام عليكم ورحمة الله",
+                "expected": {
+                    "type": "greeting",
+                    "significance": "high",
+                    "context": "formal_greeting"
+                }
+            }
+        ]
+    },
+    "frame_detection": {
+        "simple_frames": [
+            {
+                "id": "FD001",
+                "input": "وحكت شهرزاد قائلةً: كان يا ما كان",
+                "expected": {
+                    "frame_level": 1,
+                    "frame_type": "story_start",
+                    "narrator": "شهرزاد"
+                }
+            },
+            {
+                "id": "FD002",
+                "input": "قال التاجر: وفي ذلك اليوم",
+                "expected": {
+                    "frame_level": 2,
+                    "frame_type": "embedded_story",
+                    "narrator": "التاجر"
+                }
+            }
+        ],
+        "nested_frames": [
+            {
+                "id": "NF001",
+                "text": "فقال الملك: حدثني الوزير قائلاً: سمعت من التاجر",
+                "expected": {
+                    "levels": 3,
+                    "narrators": ["الملك", "الوزير", "التاجر"]
+                }
+            }
+        ]
+    }
+}
