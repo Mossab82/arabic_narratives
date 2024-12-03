@@ -1,0 +1,104 @@
+{
+    "honorifics": {
+        "royal": [
+            {
+                "text": "يا أمير المؤمنين",
+                "translation": "O Commander of the Faithful",
+                "context": "Address to caliphs",
+                "significance": "high"
+            },
+            {
+                "text": "مولاي",
+                "translation": "My Lord",
+                "context": "Address to rulers",
+                "significance": "high"
+            }
+        ],
+        "religious": [
+            {
+                "text": "الشيخ",
+                "translation": "Sheikh",
+                "context": "Religious or elderly figure",
+                "significance": "medium"
+            },
+            {
+                "text": "سيدي",
+                "translation": "Sir/Master",
+                "context": "Respectful address",
+                "significance": "medium"
+            }
+        ]
+    },
+    "social_customs": {
+        "greetings": [
+            {
+                "text": "السلام عليكم",
+                "translation": "Peace be upon you",
+                "context": "Traditional greeting",
+                "significance": "high"
+            },
+            {
+                "text": "أهلاً وسهلاً",
+                "translation": "Welcome",
+                "context": "Welcoming guests",
+                "significance": "medium"
+            }
+        ],
+        "ceremonies": [
+            {
+                "text": "مجلس",
+                "translation": "Assembly/gathering",
+                "context": "Formal gathering",
+                "significance": "high"
+            }
+        ]
+    },
+    "religious_references": {
+        "prayers": [
+            {
+                "text": "بسم الله الرحمن الرحيم",
+                "translation": "In the name of Allah, the Most Gracious, the Most Merciful",
+                "context": "Opening phrase",
+                "significance": "high"
+            }
+        ],
+        "expressions": [
+            {
+                "text": "إن شاء الله",
+                "translation": "If Allah wills",
+                "context": "Future reference",
+                "significance": "medium"
+            }
+        ]
+    },
+    "locations": {
+        "cities": [
+            {
+                "text": "بغداد",
+                "translation": "Baghdad",
+                "context": "Capital city",
+                "significance": "high"
+            },
+            {
+                "text": "البصرة",
+                "translation": "Basra",
+                "context": "Port city",
+                "significance": "medium"
+            }
+        ],
+        "places": [
+            {
+                "text": "السوق",
+                "translation": "Market",
+                "context": "Commercial area",
+                "significance": "medium"
+            },
+            {
+                "text": "القصر",
+                "translation": "Palace",
+                "context": "Royal residence",
+                "significance": "high"
+            }
+        ]
+    }
+}
