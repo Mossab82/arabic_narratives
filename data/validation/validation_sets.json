@@ -1,0 +1,77 @@
+{
+    "morphological_validation": {
+        "roots": [
+            {
+                "word": "مكتوب",
+                "correct_root": "كتب",
+                "correct_pattern": "مَفْعُول"
+            },
+            {
+                "word": "يستغفر",
+                "correct_root": "غفر",
+                "correct_pattern": "يَسْتَفْعِل"
+            }
+        ],
+        "pos_tags": [
+            {
+                "text": "ذهب الرجل إلى السوق",
+                "correct_tags": ["VERB", "DET+NOUN", "PREP", "DET+NOUN"]
+            }
+        ]
+    },
+    "cultural_validation": {
+        "honorifics": [
+            {
+                "text": "يا سيدي الوزير",
+                "expected": {
+                    "type": "formal_address",
+                    "status": "high_official",
+                    "context": "court_setting"
+                }
+            }
+        ],
+        "customs": [
+            {
+                "text": "أقام وليمة عظيمة",
+                "expected": {
+                    "type": "social_custom",
+                    "occasion": "celebration",
+                    "significance": "high"
+                }
+            }
+        ]
+    },
+    "frame_validation": {
+        "boundaries": [
+            {
+                "text": "قال الصياد: ولما فتحت القمقم",
+                "expected": {
+                    "start_index": 5,
+                    "end_index": -1,
+                    "frame_type": "embedded"
+                }
+            }
+        ],
+        "hierarchies": [
+            {
+                "text": "فحكت شهرزاد قائلة: حدثني أبي قال: كان تاجر",
+                "expected": {
+                    "levels": [
+                        {
+                            "level": 0,
+                            "narrator": "شهرزاد"
+                        },
+                        {
+                            "level": 1,
+                            "narrator": "أبي"
+                        },
+                        {
+                            "level": 2,
+                            "narrator": null
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
