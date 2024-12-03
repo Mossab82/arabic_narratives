@@ -1,0 +1,63 @@
+{
+    "context_rules": {
+        "honorifics": {
+            "maintain_hierarchy": true,
+            "preserve_formality": true,
+            "required_context": [
+                "speaker_status",
+                "addressee_status",
+                "setting"
+            ]
+        },
+        "social_customs": {
+            "preserve_timing": true,
+            "maintain_reciprocity": true,
+            "required_context": [
+                "occasion",
+                "participants",
+                "setting"
+            ]
+        },
+        "religious_references": {
+            "preserve_reverence": true,
+            "maintain_accuracy": true,
+            "required_context": [
+                "occasion",
+                "purpose",
+                "speaker"
+            ]
+        }
+    },
+    "validation_rules": {
+        "markers": {
+            "min_confidence": 0.85,
+            "require_context": true,
+            "allow_variants": false
+        },
+        "relationships": {
+            "min_confidence": 0.90,
+            "require_bidirectional": true,
+            "allow_implicit": false
+        }
+    },
+    "transformation_rules": {
+        "names": {
+            "preserve_titles": true,
+            "maintain_honorifics": true,
+            "required_attributes": [
+                "gender",
+                "status",
+                "role"
+            ]
+        },
+        "places": {
+            "preserve_historical_names": true,
+            "maintain_geography": true,
+            "required_attributes": [
+                "region",
+                "period",
+                "significance"
+            ]
+        }
+    }
+}
